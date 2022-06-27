@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class TestCaseImporter {
 
-  private TestCaseXmlReader testCaseXmlReader;
+  private TestCaseXmlReaderMock testCaseXmlReaderMock;
 
   private TestCaseRepository testCaseRepository;
 
@@ -22,13 +22,13 @@ public class TestCaseImporter {
 
     cleanDB();
 
-    final var testCaseXmls = testCaseXmlReader.readTestcaseXml();
+    final var testCaseXmls = testCaseXmlReaderMock.readTestcaseXml();
 
     for (final TestCaseXml xml : testCaseXmls) {
 
-      TestCase testCase = testCaseRepository.findByName(xml.getName())
+      final TestCase testCase = testCaseRepository.findByName(xml.getName())
           .orElse(new TestCase());
-      
+
       testCase.setDescription(xml.getDescription());
       testCase.setName(xml.getName());
       testCase.setRequiredTestcases(fetchAlreadyExistentOrCreateRequiredTestcasesDeclaredIn(xml));

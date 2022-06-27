@@ -8,25 +8,25 @@ import org.springframework.stereotype.Service;
  * this class mocks an XML reader
  */
 @Service
-public class TestCaseXmlReader {
+public class TestCaseXmlReaderMock {
 
   public List<TestCaseXml> readTestcaseXml() {
 
-    var testCaseXmlA = TestCaseXml.builder()
+    final var testCaseXmlA = TestCaseXml.builder()
         .name("TestA")
         .description("description TestA")
         .requiredTestcases(List.of("TestB", "TestC")).build();
 
-    var testCaseXmlB = TestCaseXml.builder()
+    final var testCaseXmlB = TestCaseXml.builder()
         .name("TestB")
         .description("description TestB")
         .requiredTestcases(List.of()).build();
 
-    var testCaseXmlC = TestCaseXml.builder()
+    final var testCaseXmlC = TestCaseXml.builder()
         .name("TestC")
         .description("description TestC")
         .requiredTestcases(List.of()).build();
-    
+
     return List.of(testCaseXmlA, testCaseXmlB, testCaseXmlC);
   }
 

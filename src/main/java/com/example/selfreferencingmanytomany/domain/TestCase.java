@@ -30,11 +30,11 @@ public class TestCase {
 
   @ManyToMany
   @JoinTable(
-      name = "tf_required_testcases",
+      name = "required_testcases",
       joinColumns = @JoinColumn(name = "testcase_id", referencedColumnName = "id"),
       inverseJoinColumns = @JoinColumn(name = "required_testcase_id", referencedColumnName = "id")
   )
-  private Set<TestCase> requiredTestcases;
+  private Set<TestCase> requiredTestcases = new java.util.LinkedHashSet<>();
 
 
 }

@@ -1,6 +1,6 @@
 package com.example.selfreferencingmanytomany.domain;
 
-import java.util.Set;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,7 +34,7 @@ public class TestCase {
       joinColumns = @JoinColumn(name = "testcase_id", referencedColumnName = "id"),
       inverseJoinColumns = @JoinColumn(name = "required_testcase_id", referencedColumnName = "id")
   )
-  private Set<TestCase> requiredTestcases = new java.util.LinkedHashSet<>();
+  private List<TestCase> requiredTestcases;
 
 
 }

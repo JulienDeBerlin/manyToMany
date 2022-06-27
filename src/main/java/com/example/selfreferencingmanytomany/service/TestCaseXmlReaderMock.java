@@ -15,19 +15,29 @@ public class TestCaseXmlReaderMock {
     final var testCaseXmlA = TestCaseXml.builder()
         .name("TestA")
         .description("description TestA")
-        .requiredTestcases(List.of("TestB", "TestC")).build();
+        .requiredTestcases(List.of()).build();
 
     final var testCaseXmlB = TestCaseXml.builder()
         .name("TestB")
         .description("description TestB")
-        .requiredTestcases(List.of()).build();
+        .requiredTestcases(List.of("TestA", "TestC")).build();
 
     final var testCaseXmlC = TestCaseXml.builder()
         .name("TestC")
         .description("description TestC")
         .requiredTestcases(List.of()).build();
 
-    return List.of(testCaseXmlA, testCaseXmlB, testCaseXmlC);
+    final var testCaseXmlD = TestCaseXml.builder()
+        .name("TestD")
+        .description("description TestD")
+        .requiredTestcases(List.of("TestB")).build();
+
+    final var testCaseXmlE = TestCaseXml.builder()
+        .name("TestE")
+        .description("description TestE")
+        .requiredTestcases(List.of("TestA")).build();
+
+    return List.of(testCaseXmlA, testCaseXmlB, testCaseXmlC, testCaseXmlD, testCaseXmlE);
   }
 
 }
